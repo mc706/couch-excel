@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="couch-excel">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Couch Excel</title>
@@ -8,7 +8,28 @@
     <meta name="description" content="A web based application for collecting data and reporting on it">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body ng-controller="GlobalController" ng-cloak layout="horizontal">
+<material-sidenav layout="vertical" class="material-sidenav-left material-whiteframe-z3" component-id="left">
+    <material-toolbar class="material-theme-green material-medium-tall">
+        <h1 class="material-toolbar-tools" style="padding-top:25px;">
+            Couch Excel
+        </h1>
+    </material-toolbar>
+    <material-content flex>
+        <!--sidebar -->
+        <material-button ng-href="#/" class="menu-item menu-title">Home</material-button>
+        <!--/sidebar-->
+    </material-content>
+</material-sidenav>
+<div layout="vertical" layout-fill>
+    <material-toolbar class="material-theme-yellow material-medium-tall">
+        <!--page header-->
+        <h1 class="header-title">{{ header }}</h1>
+        <!--/page header-->
+    </material-toolbar>
+
+    <div class="material-content" ng-view></div>
+</div>
 
 <!--vendor scripts -->
 <script src="scripts/vendor/angular.js"></script>
@@ -24,6 +45,8 @@
 <!--/vendor scripts -->
 <!-- angular app -->
 <script src="app/app.js"></script>
+<script src="app/controllers/homeController.js"></script>
+<script src="app/controllers/globalController.js"></script>
 <!--/angular app -->
 </body>
 </html>
