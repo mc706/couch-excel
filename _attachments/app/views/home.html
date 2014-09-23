@@ -1,3 +1,17 @@
-<div class="page-home" layout=vertical layout-lg="horizontal" layout-md="horizontal" layout-sm="horizontal">
-    
+<div class="page page-home" layout=vertical layout-lg="horizontal" layout-md="horizontal" layout-sm="horizontal"
+     layout-padding>
+    <div flex>
+        <material-content class="material-whiteframe-z1">
+            <material-toolbar class="material-theme-green material-toolbar-tools">
+                <h3>Databases</h3>
+            </material-toolbar>
+            <material-content class=material-content-padding>
+                <material-list>
+                    <material-item ng-repeat="database in databases">
+                        {{database}}
+                    </material-item>
+                </material-list>
+            </material-content>
+        </material-content>
+    </div>
 </div>

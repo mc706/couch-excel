@@ -9983,4 +9983,24 @@ button.close {
   content: "\f20c"; }
 
 /* global styles */
+html {
+  height: 100%; }
+
+body {
+  background-color: lightgrey;
+  height: 100%; }
+
+[ng-click] {
+  cursor: pointer; }
+
+div.page material-content {
+  background-color: white; }
+
+material-toolbar {
+  padding: 0 15px; }
+
+material-sidenav material-content material-button.menu-item {
+  width: 100%;
+  padding: 15px; }
+
 /* page styles */

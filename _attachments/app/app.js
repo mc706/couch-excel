@@ -26,5 +26,48 @@ app.config(function ($routeProvider) {
             controller: 'HomeController',
             templateUrl: 'app/views/home.html'
         })
+        .when('/database/:database/',
+        {
+            controller: 'DatabaseController',
+            templateUrl: 'app/views/list.html',
+            resolve: {
+                objects: function (DatabaseService, $route) {
+                    var database = $route.current.params.database;
+                    return DatabaseService.listData(database);
+                }
+            }
+        })
+        .when('/database/:database/setup',
+        {
+            controller: 'SetupController',
+            templateUrl: 'app/views/setup.html',
+            resolve: {
+                database: function ($route) {
+                    return $route.current.params.database;
+                }
+            }
+        })
+        .when('/database/:database/new',
+        {
+            controller: 'NewController',
+            templateUrl: 'app/views/new.html',
+            resolve: {
+                database: function ($route) {
+                    return $route.current.params.database;
+                }
+            }
+        })
+        .when('/database/:database/detail/:id',
+        {
+            controller: 'DetailController',
+            templateUrl: 'app/views/detail.html',
+            resolve: {
+                object: function(DatabaseService, $route) {
+                    var database = $route.current.params.database,
+                        id = $route.current.params.id;
+                    return DatabaseService.getData(database, id);
+                }
+            }
+        })
         .otherwise({redirectTo: '/'});
 });
