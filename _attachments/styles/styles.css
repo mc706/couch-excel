@@ -1,0 +1,60 @@
+/*
+Syntax error: File to import not found or unreadable: site/global.
+              Load path: /Users/Ryan.McDevitt/Development/Personal/couch-excel/_attachments/styles (DEPRECATED)
+        on line 5 of styles.scss
+
+1: /* vendor styles *\/
+2: @import "vendor/bootstrap";
+3: 
+4: /* global styles *\/
+5: @import "site/global";
+6: 
+7: /* page styles *\/
+8: @import "site/home";
+
+Backtrace:
+styles.scss:5
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/stack.rb:121:in `with_frame'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/stack.rb:79:in `with_base'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/engine.rb:274:in `render'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:378:in `update_stylesheet'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `each'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/exec.rb:489:in `watch_or_update'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/exec.rb:346:in `process_result'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/exec.rb:43:in `parse'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/lib/sass/exec.rb:22:in `parse!'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/gems/sass-3.3.9/bin/scss:13:in `<top (required)>'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/bin/scss:23:in `load'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/bin/scss:23:in `<main>'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/Users/Ryan.McDevitt/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: site/global.\A               Load path: /Users/Ryan.McDevitt/Development/Personal/couch-excel/_attachments/styles (DEPRECATED)\A         on line 5 of styles.scss\A \A 1: /* vendor styles */\A 2: @import \"vendor/bootstrap\";\A 3: \A 4: /* global styles */\A 5: @import \"site/global\";\A 6: \A 7: /* page styles */\A 8: @import \"site/home\";"; }
