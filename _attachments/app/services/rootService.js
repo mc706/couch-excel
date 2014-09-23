@@ -1,4 +1,4 @@
-app.service('RootService', function ($http, $q) {
+app.service('RootService', function ($http, $q, $log, $filter) {
     "use strict";
     return {
         listDatabases: function () {
@@ -7,7 +7,12 @@ app.service('RootService', function ($http, $q) {
                 method: 'GET',
                 url: '/_all_dbs/'
             }).success(function (data, status, headers, config) {
-                defer.resolve(data);
+                var exclude = /(^_|^test_suite|^couch\-excel$)/i,
+                    databases = $filter('filter')(data, function (n, i) {
+                        return !exclude.test(n);
+                    }, true);
+                $log.debug("Filtered Response:", databases);
+                defer.resolve(databases);
             }).error(function (data, status, headers, config) {
                 defer.reject(status);
             });
