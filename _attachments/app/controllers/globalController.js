@@ -14,6 +14,9 @@ app.controller("GlobalController", function ($scope, $log, $location, $materialT
             case "setup":
                 url = "/database/" + arguments[1] + '/setup';
                 break;
+            case "reports":
+                url = "/database/" + arguments[1] + '/reports';
+                break;
         }
         $location.path(url);
     };
