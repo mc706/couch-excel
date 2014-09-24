@@ -1,6 +1,20 @@
-<div class="page page-setup" layout=vertical layout-lg="horizontal" layout-md="horizontal" layout-sm="horizontal"
-     layout-padding>
-    <div flex>
+<div class="page page-setup" layout=vertical>
+    <div flex layout="horizontal" layout-padding>
+        <div flex></div>
+        <material-button class="material-button-fab material-theme-green" title="Save" ng-click="saveSettings()">
+            <i class="fa fa-save fa-2x"></i>
+        </material-button>
+        <material-button class="material-button-fab material-theme-red" title="Cancel" ng-click="go('database', database, 'setup')">
+            <i class="fa fa-times fa-2x"></i>
+        </material-button>
+    </div>
+    <div flex layout="vertical" layout-lg="horizontal" layout-md="horizontal" layout-sm="vertical" layout-padding>
+        <material-content class="material-whiteframe-z1">
+            <material-toolbar class="material-theme-green material-toolbar-tools">
+                <h3>Databases</h3>
+            </material-toolbar>
+
+        </material-content>
         <material-content class="material-whiteframe-z1">
             <material-toolbar class="material-theme-green material-toolbar-tools">
                 <h3>Databases</h3>

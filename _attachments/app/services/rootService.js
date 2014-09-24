@@ -126,6 +126,18 @@ app.service('RootService', function ($http, $q, $log, $filter) {
                 defer.reject(status);
             });
             return defer.promise;
+        },
+        getSettings: function (name) {
+            var defer = $q.defer();
+            $http({
+                method: 'GET',
+                url: '/' + name + '/_design/config'
+            }).success(function (data, status, headers, config) {
+                defer.resolve(data.structure);
+            }).error(function (data, status, headers, config) {
+                defer.reject(status);
+            });
+            return defer.promise;
         }
 
     };
