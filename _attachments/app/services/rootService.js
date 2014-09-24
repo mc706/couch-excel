@@ -30,12 +30,47 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             });
             return defer.promise;
         },
+        provisionDatabase: function (name) {
+            var defer = $q.defer();
+            $http({
+                method: 'PUT',
+                url: '/' + name + '/_design/filter',
+                data: {
+                    language: 'javascript',
+                    views: {
+                        reports: {
+                            map: "function(doc) {\n  if (doc.type===\"report\"){\n  emit(doc._id, doc);\n}\n}"
+                        }
+                    }
+                }
+            }).success(function (data, status, headers, config) {
+                defer.resolve(data);
+            }).error(function (data, status, headers, config) {
+                defer.reject(status);
+            });
+            return defer.promise;
+        },
         createDatabase: function (name) {
             var defer = $q.defer();
             $http({
                 method: 'PUT',
                 url: '/' + name
             }).success(function (data, status, headers, config) {
+                $http({
+                    method: 'PUT',
+                    url: '/' + name + '/_design/filter',
+                    data: {
+                        language: 'javascript',
+                        views: {
+                            reports: {
+                                map: "function(doc) {\n  if (doc.type===\"report\"){\n  emit(doc._id, doc);\n}\n}"
+                            },
+                            rows: {
+                                map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
+                            }
+                        }
+                    }
+                });
                 defer.resolve(data);
             }).error(function (data, status, headers, config) {
                 defer.reject(status);
