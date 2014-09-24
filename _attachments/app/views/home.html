@@ -5,12 +5,51 @@
             <material-toolbar class="material-theme-green material-toolbar-tools">
                 <h3>Databases</h3>
             </material-toolbar>
-            <material-content class=material-content-padding>
+            <material-content>
                 <material-list>
-                    <material-item ng-repeat="database in databases">
-                        {{database}}
+                    <material-item ng-repeat="database in databases" role="listitem">
+                        <material-item-content>
+                            <div class="material-tile-content" layout="horizontal" layout-padding>
+                                <span class="database-title" ng-click="go('database', database)" flex>{{database}}</span>
+
+                                <div>
+                                    <material-button class="material-button-fab" title="Settings" ng-click="go('setup', database)">
+                                        <i class="fa fa-cog fa-2x"></i>
+                                    </material-button>
+                                    <material-button class="material-button-fab material-theme-red" title="Delete" ng-click="deleteDatabase(database)">
+                                        <i class="fa fa-trash fa-2x"></i>
+                                    </material-button>
+                                </div>
+
+                            </div>
+                        </material-item-content>
+                        <material-divider ng-if="!$last" class="ng-scope"></material-divider>
                     </material-item>
                 </material-list>
+            </material-content>
+        </material-content>
+    </div>
+    <div flex>
+        <material-content class="material-whiteframe-z1">
+            <material-toolbar class="material-theme-green material-toolbar-tools">
+                <h3>Create New Database</h3>
+            </material-toolbar>
+            <material-content class="material-content-padding">
+                <form name="NewDatabaseForm" ng-submit="submitNewDatabase(NewDatabaseForm.$valid)" novalidate>
+                    <material-input-group class="material-input-group-theme-green">
+                        <label for="name">Name</label>
+                        <material-input class="material-input" type="text" name="name" id="name" required
+                                        ng-model="newDatabase.name"></material-input>
+                        <p class="error"
+                           ng-show="NewDatabaseForm.name.$invalid && (!NewDatabaseForm.name.$pristine || submitted)">
+                            A name is required
+                        </p>
+                    </material-input-group>
+                    <br>
+                    <material-button class="material-button-fab material-theme-green pull-right" type="submit">
+                        <i class="fa fa-plus fa-2x"></i>
+                    </material-button>
+                </form>
             </material-content>
         </material-content>
     </div>

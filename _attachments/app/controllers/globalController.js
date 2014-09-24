@@ -2,13 +2,29 @@ app.controller("GlobalController", function ($scope, $log, $location, $materialT
     'use strict';
     $log.debug('GlobalController Initialized');
 
-    $scope.go = function (url) {
+    $scope.go = function (section) {
+        var url;
+        switch (section) {
+            case "home":
+                url = "/";
+                break;
+            case "database":
+                url = "/database/" + arguments[1];
+                break;
+            case "setup":
+                url = "/database/" + arguments[1] + '/setup';
+                break;
+        }
         $location.path(url);
     };
 
-    RootService.listDatabases().then(function (data) {
-        $scope.databases = data;
-    });
+    $scope.getDatabases = function () {
+        $log.debug('Get Databases Called');
+        RootService.listDatabases().then(function (data) {
+            $scope.databases = data;
+        });
+    };
+    $scope.getDatabases();
 
     $scope.showToast = function ($event) {
         var hideToast = $materialToast({
@@ -17,4 +33,10 @@ app.controller("GlobalController", function ($scope, $log, $location, $materialT
             position: 'top right'
         });
     };
+
+    //Global listeners
+    $scope.$on('updateDatabases', function (event) {
+        $log.debug('updateDatabases event recieved');
+        $scope.getDatabases();
+    });
 });

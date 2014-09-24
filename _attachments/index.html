@@ -18,6 +18,7 @@
     <material-content flex>
         <!--sidebar -->
         <material-button ng-href="#/" class="menu-item menu-title">Home</material-button>
+        <material-button ng-href="#/database/{{database}}" class="menu-item menu-title" ng-repeat="database in databases">{{database}}</material-button>
         <!--/sidebar-->
     </material-content>
 </material-sidenav>
@@ -39,7 +40,7 @@
 <script src="scripts/vendor/angular-route.js"></script>
 <script src="scripts/vendor/angular-touch.js"></script>
 <script src="scripts/vendor/highcharts.js"></script>
-<script src="scripts/vendor/highcharts-custom.js"></script>
+<!--<script src="scripts/vendor/highcharts-custom.js"></script>-->
 <script src="scripts/vendor/highcharts-ng.js"></script>
 <script src="scripts/vendor/md5.js"></script>
 <!--/vendor scripts -->
@@ -47,6 +48,10 @@
 <script src="app/app.js"></script>
 <script src="app/controllers/homeController.js"></script>
 <script src="app/controllers/globalController.js"></script>
+<script src="app/controllers/databaseController.js"></script>
+<script src="app/controllers/detailController.js"></script>
+<script src="app/controllers/newController.js"></script>
+<script src="app/controllers/setupController.js"></script>
 <script src="app/services/rootService.js"></script>
 <script src="app/services/databaseService.js"></script>
 <!--/angular app -->
