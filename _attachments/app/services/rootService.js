@@ -103,7 +103,7 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             });
             return defer.promise;
         },
-        updateSettings: function (name, struct) {
+        updateStructure: function (name, struct) {
             var defer = $q.defer();
             $http({
                 method: 'PUT',
@@ -127,7 +127,7 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             });
             return defer.promise;
         },
-        getSettings: function (name) {
+        getStructure: function (name) {
             var defer = $q.defer();
             $http({
                 method: 'GET',

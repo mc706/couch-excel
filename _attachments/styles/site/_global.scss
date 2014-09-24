@@ -15,6 +15,12 @@ div.page {
   material-content {
     background-color: white;
   }
+  div.button-bar {
+    material-button {
+      background-color: #ffffff;
+      margin-right: 15px;
+    }
+  }
 }
 
 material-toolbar {

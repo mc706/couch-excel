@@ -58,9 +58,9 @@ app.config(function ($routeProvider) {
                 database: function ($route) {
                     return $route.current.params.database;
                 },
-                settings: function (RootService, $route) {
+                structure: function (RootService, $route) {
                     var database = $route.current.params.database;
-                    return RootService.getSettings(database);
+                    return RootService.getStructure(database);
                 }
             }
         })
