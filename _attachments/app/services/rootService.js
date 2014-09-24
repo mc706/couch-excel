@@ -58,7 +58,7 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             }).success(function (data, status, headers, config) {
                 $http({
                     method: 'PUT',
-                    url: '/' + name + '/_design/filter',
+                    url: '/' + name + '/_design/config',
                     data: {
                         language: 'javascript',
                         views: {
@@ -68,7 +68,8 @@ app.service('RootService', function ($http, $q, $log, $filter) {
                             rows: {
                                 map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
                             }
-                        }
+                        },
+                        structure: {}
                     }
                 });
                 defer.resolve(data);
