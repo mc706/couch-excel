@@ -2,22 +2,10 @@ app.controller("GlobalController", function ($scope, $log, $location, $materialT
     'use strict';
     $log.debug('GlobalController Initialized');
 
-    $scope.go = function (section) {
-        var url;
-        switch (section) {
-            case "home":
-                url = "/";
-                break;
-            case "database":
-                url = "/database/" + arguments[1];
-                break;
-            case "setup":
-                url = "/database/" + arguments[1] + '/setup';
-                break;
-            case "reports":
-                url = "/database/" + arguments[1] + '/reports';
-                break;
-        }
+    $scope.go = function () {
+        var args = Array.prototype.slice.call(arguments),
+            url = "/" + args.join('/');
+            $log.debug(url);
         $location.path(url);
     };
 

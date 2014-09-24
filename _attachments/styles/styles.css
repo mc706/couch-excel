@@ -10015,3 +10015,7 @@ div.page-home form input {
   width: 100%; }
 div.page-home span.database-title {
   font-size: 1.8em; }
+
+div.page-list div.button-bar material-button {
+  background-color: #ffffff;
+  margin-right: 15px; }

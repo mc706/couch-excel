@@ -34,6 +34,9 @@ app.config(function ($routeProvider) {
                 objects: function (DatabaseService, $route) {
                     var database = $route.current.params.database;
                     return DatabaseService.listData(database);
+                },
+                database: function ($route) {
+                    return $route.current.params.database;
                 }
             }
         })
