@@ -3,7 +3,7 @@
     <div flex layout="horizontal" layout-padding>
         <div flex></div>
         <div class="button-bar">
-            <material-button class="material-button-fab material-theme-green" title="Save" ng-click="saveStructure()">
+            <material-button class="material-button-fab material-theme-green" title="Save" ng-click="saveSettings()">
                 <i class="fa fa-save fa-2x"></i>
             </material-button>
             <material-button class="material-button-fab material-theme-red" title="Cancel"
@@ -20,15 +20,27 @@
                 <material-toolbar class="material-theme-green material-toolbar-tools">
                     <h3>Field Setup</h3>
                 </material-toolbar>
-                <material-content class="material-content-padded">
-                    <material-card ng-repeat="field in structure">
-
-                    </material-card>
+                <!--fields-->
+                <material-content class="material-content-padding">
+                    <material-content class="material-whiteframe-z1 field" ng-repeat="field in settings.structure">
+                        <material-toolbar class="material-theme-light field-header">
+                            <material-input name="field-name" id="field-name" model="field.name"
+                                            placeholder="field-name"></material-input>
+                        </material-toolbar>
+                        <material-content class="material-content-padding">
+                            <material-input-group class="material-input-group-theme-light">
+                                <label for="display">Display Name</label>
+                                <material-input class="material-input" type="text" name="display" id="display" required
+                                                ng-model="field.display_name"></material-input>
+                            </material-input-group>
+                        </material-content>
+                    </material-content>
                     <material-button class="material-button-fab material-theme-green" title="Add Field"
                                      ng-click="addField()">
                         <i class="fa fa-2x fa-plus"></i>
                     </material-button>
                 </material-content>
+                <!--/fields -->
             </material-content>
         </div>
         <!--/left panel-->
@@ -38,7 +50,9 @@
                 <material-toolbar class="material-theme-green material-toolbar-tools">
                     <h3>Form Preview</h3>
                 </material-toolbar>
-                <form></form>
+                <form>
+
+                </form>
             </material-content>
         </div>
         <!--/right panel-->

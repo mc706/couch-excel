@@ -10018,3 +10018,18 @@ div.page-home form input {
   width: 100%; }
 div.page-home span.database-title {
   font-size: 1.8em; }
+
+div.page-setup .field {
+  margin-bottom: 15px; }
+div.page-setup .field-header input {
+  border: none;
+  border-bottom: 1px solid white;
+  margin: 15px 5px;
+  color: white; }
+  div.page-setup .field-header input::-moz-placeholder {
+    color: white;
+    opacity: 1; }
+  div.page-setup .field-header input:-ms-input-placeholder {
+    color: white; }
+  div.page-setup .field-header input::-webkit-input-placeholder {
+    color: white; }

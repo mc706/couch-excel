@@ -1,16 +1,16 @@
-app.controller("SetupController", function ($scope, $log, RootService, database, structure) {
+app.controller("SetupController", function ($scope, $log, RootService, database, settings) {
     'use strict';
     $log.debug('SetupController Initialized');
     $scope.database = database;
     $log.debug("Selected Database:", $scope.database);
-    $scope.structure = structure;
+    $scope.settings = settings;
 
     $scope.addField = function () {
-        $scope.structure.push({});
+        $scope.settings.structure.push({});
     };
 
-    $scope.saveStructure = function () {
-        RootService.updateStructure($scope.database, $scope.structure).then(function () {
+    $scope.saveSettings = function () {
+        RootService.updateSettings($scope.database, $scope.settings).then(function () {
             $scope.$emit('updateDatabases');
         });
     };

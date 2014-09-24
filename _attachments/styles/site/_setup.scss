@@ -1,3 +1,15 @@
-div.page-setup {
 
+div.page-setup {
+  .field {
+    margin-bottom: 15px;
+  }
+  .field-header {
+    input {
+      border:none;
+      border-bottom: 1px solid white;
+      margin:15px 5px;
+      color:white;
+      @include placeholder(white);
+    }
+  }
 }

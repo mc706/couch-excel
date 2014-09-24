@@ -103,23 +103,12 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             });
             return defer.promise;
         },
-        updateStructure: function (name, struct) {
+        updateSettings: function (name, settings) {
             var defer = $q.defer();
             $http({
                 method: 'PUT',
                 url: '/' + name + '/_design/config',
-                data: {
-                    language: 'javascript',
-                    views: {
-                        reports: {
-                            map: "function(doc) {\n  if (doc.type===\"report\"){\n  emit(doc._id, doc);\n}\n}"
-                        },
-                        rows: {
-                            map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
-                        }
-                    },
-                    structure: struct
-                }
+                data: settings
             }).success(function (data, status, headers, config) {
                 defer.resolve(data);
             }).error(function (data, status, headers, config) {
@@ -127,13 +116,13 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             });
             return defer.promise;
         },
-        getStructure: function (name) {
+        getSettings: function (name) {
             var defer = $q.defer();
             $http({
                 method: 'GET',
                 url: '/' + name + '/_design/config'
             }).success(function (data, status, headers, config) {
-                defer.resolve(data.structure);
+                defer.resolve(data);
             }).error(function (data, status, headers, config) {
                 defer.reject(status);
             });
