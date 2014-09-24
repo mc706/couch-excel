@@ -69,7 +69,7 @@ app.service('RootService', function ($http, $q, $log, $filter) {
                                 map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
                             }
                         },
-                        structure: {}
+                        structure: []
                     }
                 });
                 defer.resolve(data);
@@ -96,6 +96,30 @@ app.service('RootService', function ($http, $q, $log, $filter) {
             $http({
                 method: 'GET',
                 url: url
+            }).success(function (data, status, headers, config) {
+                defer.resolve(data);
+            }).error(function (data, status, headers, config) {
+                defer.reject(status);
+            });
+            return defer.promise;
+        },
+        updateSettings: function (name, struct) {
+            var defer = $q.defer();
+            $http({
+                method: 'PUT',
+                url: '/' + name + '/_design/config',
+                data: {
+                    language: 'javascript',
+                    views: {
+                        reports: {
+                            map: "function(doc) {\n  if (doc.type===\"report\"){\n  emit(doc._id, doc);\n}\n}"
+                        },
+                        rows: {
+                            map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
+                        }
+                    },
+                    structure: struct
+                }
             }).success(function (data, status, headers, config) {
                 defer.resolve(data);
             }).error(function (data, status, headers, config) {
