@@ -37,6 +37,16 @@ app.config(function ($routeProvider) {
                 }
             }
         })
+        .when('/database/:database/reports',
+        {
+            controller: 'ReportController',
+            templateUrl: 'app/views/report.html',
+            resolve: {
+                database: function ($route) {
+                    return $route.current.params.database;
+                }
+            }
+        })
         .when('/database/:database/setup',
         {
             controller: 'SetupController',
