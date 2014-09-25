@@ -1,7 +1,7 @@
 {
     "env" : {
         "default" : {
-            "db" : "http://mc706:Rowing1@localhost:5984/couch-excel"
+            "db" : "http://localhost:5984/couch-excel"
         },
         "remote": {
             "db" : "https://mc706:Rowing1@mc706.iriscouch.com:6984/couch-excel"

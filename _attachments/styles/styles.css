@@ -10033,3 +10033,5 @@ div.page-setup .field-header input {
     color: white; }
   div.page-setup .field-header input::-webkit-input-placeholder {
     color: white; }
+div.page-setup .form-group {
+  padding: 0 15px; }

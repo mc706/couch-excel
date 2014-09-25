@@ -15,4 +15,11 @@ app.controller("SetupController", function ($scope, $log, RootService, database,
         });
     };
 
+    $scope.fieldTypes = [
+        'text',
+        'number',
+        'date',
+        'select',
+        'checkbox'
+    ];
 });

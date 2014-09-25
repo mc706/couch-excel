@@ -66,7 +66,7 @@ app.service('RootService', function ($http, $q, $log, $filter) {
                                 map: "function(doc) {\n  if (doc.type===\"report\"){\n  emit(doc._id, doc);\n}\n}"
                             },
                             rows: {
-                                map: "function(doc) {\n  if (doc.type====\"row\"){\n   emit(doc.id, doc);\n}\n} "
+                                map: "function(doc) {\n  if (doc.type===\"row\"){\n   emit(doc.id, doc);\n}\n} "
                             }
                         },
                         structure: []

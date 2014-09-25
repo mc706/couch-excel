@@ -12,4 +12,7 @@ div.page-setup {
       @include placeholder(white);
     }
   }
+  .form-group{
+    padding:0 15px;
+  }
 }
