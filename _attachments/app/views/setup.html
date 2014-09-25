@@ -22,90 +22,102 @@
                 </material-toolbar>
                 <!--fields-->
                 <material-content class="material-content-padding">
-                    <material-content class="material-whiteframe-z1 field material-content-padding"
-                                      ng-repeat="field in settings.structure">
+                    <material-content class="material-whiteframe-z1 field" ng-repeat="field in settings.structure">
                         <!--field-name-->
                         <material-toolbar class="material-theme-light field-header">
                             <material-input name="field-name" id="field-name" ng-model="field.name"
                                             placeholder="field-name"></material-input>
+                            <i class="fa fa-times upper-right" ng-click="removeField($index)"></i>
                         </material-toolbar>
                         <!--/field-name -->
-                        <!--display name-->
                         <material-content class="material-content-padding">
+                            <!--display name-->
                             <material-input-group class="material-input-group-theme-light">
                                 <label for="display">Display Name</label>
                                 <material-input class="material-input" type="text" name="display" id="display" required
-                                                ng-model="field.display_name"></material-input>
+                                                ng-model="field.displayName"></material-input>
                             </material-input-group>
+                            <!--/display name-->
+                            <!--field type-->
+                            <div class="form-group">
+                                <label for="fieldtype">Field Type</label>
+                                <select ng-model="field.fieldType" id="fieldtype" class="form-control"
+                                        ng-options="type as type for type in fieldTypes"></select>
+                            </div>
+                            <!--/field type-->
+                            <div class="form-group">
+                                <label>Options</label>
+
+                                <div ng-switch on="field.fieldType">
+                                    <div ng-switch-when="text">
+                                        <material-checkbox ng-model="field.options.required">Required
+                                        </material-checkbox>
+                                        <material-checkbox ng-model="field.options.lowercase">Lower Case Only
+                                        </material-checkbox>
+                                        <material-checkbox ng-model="field.options.noSpaces">Disallow Spaces
+                                        </material-checkbox>
+                                        <material-input-group class="material-input-group-theme-light">
+                                            <label for="maxlen">Max Length (characters)</label>
+                                            <material-input id=maxlen name=maxlength type=text
+                                                            ng-model="field.options.maxlength"></material-input>
+                                        </material-input-group>
+                                        <br>
+                                        <label>Widget</label>
+                                        <material-radio-group ng-model="field.options.widget">
+                                            <material-radio-button ng-value="'input'">input</material-radio-button>
+                                            <material-radio-button ng-value="'textarea'">textarea
+                                            </material-radio-button>
+                                        </material-radio-group>
+                                    </div>
+                                    <div ng-switch-when="number">
+                                        <material-input-group class="material-input-group-theme-light">
+                                            <label>Min</label>
+                                            <material-input ng-model="field.options.min" type="number"></material-input>
+                                        </material-input-group>
+                                        <material-input-group class="material-input-group-theme-light">
+                                            <label>Max</label>
+                                            <material-input ng-model="field.options.max" type="number"></material-input>
+                                        </material-input-group>
+                                        <material-checkbox ng-model="field.options.required">Required
+                                        </material-checkbox>
+                                        <material-checkbox ng-model="field.options.decimal">Allow Decimals
+                                        </material-checkbox>
+                                        <br>
+                                        <label>Widget</label>
+                                        <material-radio-group ng-model="field.options.widget">
+                                            <material-radio-button ng-value="'input'">input</material-radio-button>
+                                            <material-radio-button ng-value="'slider'">slider</material-radio-button>
+                                        </material-radio-group>
+                                    </div>
+                                    <div ng-switch-when="date">
+                                        <material-input-group class="material-input-group-theme-light">
+                                            <label>Min</label>
+                                            <material-input ng-model="field.options.min"></material-input>
+                                        </material-input-group>
+                                        <material-input-group class="material-input-group-theme-light">
+                                            <label>Max</label>
+                                            <material-input ng-model="field.options.max"></material-input>
+                                        </material-input-group>
+                                        <material-checkbox ng-model="field.validation.number.required">Required
+                                        </material-checkbox>
+                                        <material-checkbox ng-model="field.validation.number.decimal">Allow Decimals
+                                        </material-checkbox>
+                                        <br>
+                                        <label>Widget</label>
+                                        <material-radio-group ng-model="field.options.widget">
+                                            <material-radio-button ng-value="'input'">input</material-radio-button>
+                                            <material-radio-button ng-value="'slider'">slider</material-radio-button>
+                                        </material-radio-group>
+                                    </div>
+                                    <div ng-switch-when="select">
+                                        select options
+                                    </div>
+                                    <div ng-switch-when="checkbox">
+                                        checkbox options
+                                    </div>
+                                </div>
+                            </div>
                         </material-content>
-                        <!--/display name-->
-                        <!--field type-->
-                        <div class="form-group">
-                            <label for="fieldtype">Field Type</label>
-                            <select ng-model="field.fieldType" id="fieldtype" class="form-control"
-                                    ng-options="type as type for type in fieldTypes"></select>
-                        </div>
-                        <!--/field type-->
-                        <material-divider></material-divider>
-                        <div class="form-group">
-                            <label>Options</label>
-                            <div ng-switch on="field.fieldType">
-                                <div ng-switch-when="text">
-                                    <material-input-group class="material-input-group-theme-light">
-                                        <label>Max Length</label>
-                                        <material-input ng-model="field.options.text.maxlength"></material-input>
-                                    </material-input-group>
-                                    <br>
-                                    <label>Widget</label>
-                                    <material-radio-group ng-model="field.options.text.widget">
-                                        <material-radio-button ng-value="input">input</material-radio-button>
-                                        <material-radio-button ng-value="textarea">textarea</material-radio-button>
-                                    </material-radio-group>
-                                </div>
-                                <div ng-switch-when="number">
-                                    <material-input-group class="material-input-group-theme-light">
-                                        <label>Min</label>
-                                        <material-input ng-model="field.options.number.min"></material-input>
-                                    </material-input-group>
-                                    <material-input-group class="material-input-group-theme-light">
-                                        <label>Max</label>
-                                        <material-input ng-model="field.options.number.max"></material-input>
-                                    </material-input-group>
-                                </div>
-                                <div ng-switch-when="date">
-                                    date options
-                                </div>
-                                <div ng-switch-when="select">
-                                    select options
-                                </div>
-                                <div ng-switch-when="checkbox">
-                                    checkbox options
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Validation</label>
-                            <div ng-switch on="field.fieldType">
-                                <div ng-switch-when="text">
-                                    <material-checkbox ng-model="field.validation.text.required">Required</material-checkbox>
-                                    <material-checkbox ng-model="field.validation.text.lowercase">Lower Case Only</material-checkbox>
-                                    <material-checkbox ng-model="field.validation.text.noSpaces">Disallow Spaces</material-checkbox>
-                                </div>
-                                <div ng-switch-when="number">
-                                    <material-checkbox ng-model="field.validation.number.required">Required</material-checkbox>
-                                    <material-checkbox ng-model="field.validation.number.decimal">Allow Decimals</material-checkbox>
-                                </div>
-                                <div ng-switch-when="date">
-                                    date validation
-                                </div>
-                                <div ng-switch-when="select">
-                                    select validation
-                                </div>
-                                <div ng-switch-when="checkbox">
-                                    checkbox validation
-                                </div>
-                            </div>
-                        </div>
                     </material-content>
                     <material-button class="material-button-fab material-theme-green" title="Add Field"
                                      ng-click="addField()">
@@ -123,9 +135,11 @@
                     <h3>Form Preview</h3>
                 </material-toolbar>
                 <form>
-                    <pre>{{settings}}</pre>
-                    <br>
-                    <pre>{{settings.structure}}</pre>
+                    <pre>{{object}}</pre>
+                    <div ng-repeat="field in settings.structure">
+                        <dynamic-field></dynamic-field>
+                        <input type="text" ng-model="object[field.name]">
+                    </div>
                 </form>
             </material-content>
         </div>

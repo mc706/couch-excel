@@ -9,6 +9,7 @@ div.page-setup {
       border-bottom: 1px solid white;
       margin:15px 5px;
       color:white;
+      width:75%;
       @include placeholder(white);
     }
   }

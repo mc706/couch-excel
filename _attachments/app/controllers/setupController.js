@@ -22,4 +22,13 @@ app.controller("SetupController", function ($scope, $log, RootService, database,
         'select',
         'checkbox'
     ];
+
+    $scope.collapse = {};
+    angular.forEach($scope.settings.structure, function (field) {
+       $scope.collapse[field.name] = false;
+    });
+
+    $scope.removeField = function (index) {
+        $scope.settings.structure.splice(index, 1);
+    };
 });
