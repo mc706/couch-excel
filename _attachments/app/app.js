@@ -1,4 +1,4 @@
-var app = angular.module("couch-excel", ['ngCookies', 'ngRoute', 'ngAnimate', 'ngMaterial', "highcharts-ng", "ui.bootstrap"]);
+var app = angular.module("couch-excel", ['ngCookies', 'ngRoute', 'ngAnimate', 'ngMaterial', "highcharts-ng", "ui.bootstrap", "ui.utils"]);
 
 app.config(function ($logProvider) {
     "use strict";
