@@ -2,15 +2,29 @@
     <label>{{field.displayName}}</label>
     <div ng-switch on="field.fieldType">
         <div ng-switch-when="text">
+            <!--TODO: field restraints-->
             <div ng-switch on="field.options.widget">
                 <div ng-switch-when="input">
-                    <input ng-model="object[field.name]" class="form-control" type="text" maxlength="{{field.options.maxlength}}" ng-required="field.options.required">
+                    <input ng-model="object" class="form-control" name="{{field.name}}" type="text" maxlength="{{field.options.maxlength}}" ng-required="field.options.required">
                 </div>
                 <div ng-switch-when="textarea">
-                    <textarea ng-model="object[field.name]" class="form-control" maxlength="{{field.options.maxlength}}" ng-required="field.options.required"></textarea>
+                    <textarea ng-model="object" class="form-control" name="{{field.name}}"  maxlength="{{field.options.maxlength}}" ng-required="field.options.required"></textarea>
                 </div>
             </div>
         </div>
+        <div ng-switch-when="number">
+            <div ng-switch on="field.options.widget">
+                <!--TODO: decimal and slider steps-->
+                <div ng-switch-when="input">
+                    <input class="form-control" type="number" ng-model=object min="{{field.options.min}}" max="{{field.options.max}}" ng-required="field.options.required" name="{{field.name}}">
+                </div>
+                <div ng-switch-when="slider">
+                    <material-slider ng-model=object name="{{field.name}}" id="id_{{field.name}}" min="{{field.options.min}}" max="{{field.options.max}}" ng-required="field.options.required"></material-slider>
+                </div>
+            </div>
+        </div>
+        <div ng-switch-when="date">
+            
+        </div>
     </div>
-    <pre>{{object}}</pre>
 </div>

@@ -24,13 +24,16 @@
                 <material-content class="material-content-padding">
                     <material-content class="material-whiteframe-z1 field" ng-repeat="field in settings.structure">
                         <!--field-name-->
-                        <material-toolbar class="material-theme-light field-header">
+                        <material-toolbar class="material-theme-light field-header" layout="horizontal">
+                            <i class="fa toggleCollapse"
+                               ng-class="{'fa-chevron-up':collapse[field.name], 'fa-chevron-down':!collapse[field.name]}"
+                               ng-click="collapse[field.name] = !collapse[field.name]"></i>
                             <material-input name="field-name" id="field-name" ng-model="field.name"
                                             placeholder="field-name"></material-input>
                             <i class="fa fa-times upper-right" ng-click="removeField($index)"></i>
                         </material-toolbar>
                         <!--/field-name -->
-                        <material-content class="material-content-padding">
+                        <material-content class="material-content-padding" ng-hide="collapse[field.name]">
                             <!--display name-->
                             <material-input-group class="material-input-group-theme-light">
                                 <label for="display">Display Name</label>
@@ -138,7 +141,6 @@
                     <pre>{{object}}</pre>
                     <div ng-repeat="field in settings.structure">
                         <dynamic-field></dynamic-field>
-                        <input type="text" ng-model="object[field.name]">
                     </div>
                 </form>
             </material-content>

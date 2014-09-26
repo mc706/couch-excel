@@ -10036,7 +10036,8 @@ div.page-setup .field-header input {
   border-bottom: 1px solid white;
   margin: 15px 5px;
   color: white;
-  width: 75%; }
+  width: 75%;
+  float: left; }
   div.page-setup .field-header input::-moz-placeholder {
     color: white;
     opacity: 1; }
@@ -10044,5 +10045,10 @@ div.page-setup .field-header input {
     color: white; }
   div.page-setup .field-header input::-webkit-input-placeholder {
     color: white; }
+div.page-setup .field-header .toggleCollapse {
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 30px; }
 div.page-setup .form-group {
   padding: 0 15px; }

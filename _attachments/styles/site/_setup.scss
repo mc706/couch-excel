@@ -10,7 +10,14 @@ div.page-setup {
       margin:15px 5px;
       color:white;
       width:75%;
+      float:left;
       @include placeholder(white);
+    }
+    .toggleCollapse {
+      float:left;
+      margin-top: auto;
+      margin-bottom: auto;
+      width:30px;
     }
   }
   .form-group{
