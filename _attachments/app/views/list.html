@@ -18,7 +18,16 @@
                 <h3>Objects</h3>
             </material-toolbar>
             <table class="table table-bordered">
-
+                <thead>
+                    <tr>
+                        <th ng-repeat="field in settings.structure">{{field.displayName}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="object in objects">
+                    <td ng-repeat="field in settings.structure">{{object[field.name]}}</td>
+                </tr>
+                </tbody>
             </table>
         </material-content>
     </div>
