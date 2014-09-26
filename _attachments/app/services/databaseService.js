@@ -5,9 +5,9 @@ app.service('DatabaseService', function ($http, $q, RootService) {
             var defer = $q.defer();
             $http({
                 method: 'GET',
-                url: '/' + database + '/'
+                url: '/' + database + '/_design/config/_view/rows'
             }).success(function (data, status, headers, config) {
-                defer.resolve(data);
+                defer.resolve(data.rows);
             }).error(function (data, status, headers, config) {
                 defer.reject(status);
             });

@@ -3,9 +3,13 @@
     <div flex>
         <material-content class="material-whiteframe-z1">
             <material-toolbar class="material-theme-green material-toolbar-tools">
-                <h3>Databases</h3>
+                <h3>New Object</h3>
             </material-toolbar>
-
+            <material-content class="material-content-padding">
+            <form class="form">
+                <dynamic-field ng-repeat="field in settings.structure"></dynamic-field>
+            </form>
+            </material-content>
         </material-content>
     </div>
 </div>
